@@ -291,7 +291,7 @@ def build_customize_tank_menu():
             tc.MIN_HEALTH, tc.MAX_HEALTH, health2_cb)
     dps_slider2 = h_slider("res2/TSlider.png", "res2/TKnob.png", (700, 350),
             tc.MIN_DPS, tc.MAX_DPS, dps2_cb)
-    fire_rate_slider2 = h_slider("res/slider.png", "res2/TKnob.png", (700, 400),
+    fire_rate_slider2 = h_slider("res2/TSlider.png", "res2/TKnob.png", (700, 400),
             tc.MIN_FIRE_RATE, tc.MAX_FIRE_RATE, fire_rate2_cb)
 
     # Value textboxes for tank2
