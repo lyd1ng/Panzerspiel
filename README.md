@@ -39,3 +39,17 @@ The surge factor specifies how many credit points do you need to set an attribut
 to its max. A surge factor of 0.9, the default value, means that you need 90 of 100
 credit points to set you health to the max of 5000.
 You can change the surge factor in the options menu.
+
+# Licences
+The code is published under the GNU General Public License v3.0 licence.
+The music was published under the Creative Commons Attribution (3.0) licence.
+You can find the licence at the /res2/music subdirectory.
+
+# Credits
+Credits are going to Thomas Kötter making all the game assets except the explosion.
+I found the explosion animation at: https://sinestesia.itch.io/2d-explosions-animations.
+Credts are also going to Kara Square for the background music:
+
+Transmutation by Kara Square (c) copyright 2017
+Licensed under a Creative Commons Attribution (3.0) license.
+http://dig.ccmixter.org/files/mindmapthat/56527 Ft: Spinningmerkaba
