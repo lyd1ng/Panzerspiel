@@ -47,7 +47,9 @@ You can find the licence at the /res2/music subdirectory.
 
 # Credits
 Credits are going to Thomas Kötter making all the game assets except the explosion.
+
 I found the explosion animation at: https://sinestesia.itch.io/2d-explosions-animations.
+
 Credts are also going to Kara Square for the background music:
 
 Transmutation by Kara Square (c) copyright 2017
