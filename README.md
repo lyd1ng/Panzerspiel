@@ -16,23 +16,6 @@ You will notice, that the acceleration is also used to calculate the angular
 velocity of your tank.
 
 # Goal
-Mr. Han: Of course I know the rules. Simple. You hit him, don't let him hit you.
-
-# Idea
-The basic idea of this game was to make a customizable tank game.
-Therefor you have 100 credits to spend on different attributes of
-you tank are:
-
-1. Speed
-2. Acceleration
-3. Health
-4. DPS (damage per shot)
-5. Fire Rate
-
-You will notice, that the acceleration is also used to calculate the angular
-velocity of your tank.
-
-# Goal
 "Of course I know the rules. Simple. You hit him, don't let him hit you." -- Mr. Han
 
 # Movement
