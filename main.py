@@ -13,10 +13,9 @@ if __name__ == "__main__":
     clock = pygame.time.Clock()
 
     # As long as the programme is running a background track is looped
-    # I didnt found a good track yet
-    # pygame.mixer.music.load("res2/background_track.mp3")
-    # pygame.mixer.music.set_volume(MUSIC_VOLUME * MUSIC_VOLUME_PRESCALER)
-    # pygame.mixer.music.play(-1)
+    pygame.mixer.music.load("res2/music/mindmapthat_-_Transmutation.mp3")
+    pygame.mixer.music.set_volume(MUSIC_VOLUME * MUSIC_VOLUME_PRESCALER)
+    pygame.mixer.music.play(-1)
 
     menu.build_menu()
 
