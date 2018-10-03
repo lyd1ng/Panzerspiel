@@ -20,6 +20,7 @@ velocity of your tank.
 
 # Movement
 The red tank is controlled by the keys w, a, s, d and alt (left).
+
 The blue tank is controlled by the keys i, j, k, l and space.
 
 # Arena
