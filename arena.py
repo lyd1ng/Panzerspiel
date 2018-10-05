@@ -8,8 +8,9 @@ from global_settings import (SCREEN_DIMENSION, BOX_SIZE)
 class arena(list):
     """
     An arena is just an extended list providing
-    an update and a draw function
-    An arena is build by an arena factory function
+    an update and a draw function. This assumes that every element of the
+    list contains an update and a draw method.
+    An arena is build by an arena factory function.
     """
     def __init(self):
         pass
@@ -35,12 +36,12 @@ class arena(list):
 
 def add_borders(arena, box_template, box_size):
     """
-    This function just adds borders to the arena
+    This function just adds borders to the arena. The borders are placed
+    ad the edge of the screen and esures that the players wont leave the
+    battlefield.
     """
     # Add borders at the top and bottom of the arena
     for i in range(0, SCREEN_DIMENSION[0] // box_size[0] + 1):
-        # Use deepcopy to as the boxes in box_types only works
-        # as a template
         box_template = box_template
         box_rectangle = pygame.Rect(i * box_size[0],
                 0, box_size[0], box_size[1])
@@ -50,8 +51,6 @@ def add_borders(arena, box_template, box_size):
         arena.append(box.box(box_rectangle, box_template))
     # Add borders at the left and right of the arena
     for i in range(0, SCREEN_DIMENSION[1] // box_size[1] + 1):
-        # Use deepcopy to as the boxes in box_types only works
-        # as a template
         box_template = box_template
         box_rectangle = pygame.Rect(0,
                 i * box_size[1], box_size[0], box_size[1])
@@ -65,9 +64,13 @@ def add_borders(arena, box_template, box_size):
 def random_arena():
     """
     This function is for test purpose only and places 20 boxes
-    of random type randomly of the arena
+    of random type randomly of the arena.
+    At this moment of the game this arena factory function is used to generate
+    the aren to play in...
     """
     _arena = arena()
+    # The box templates ensures that every wooden box has 500 life points
+    # while stone boxes are indestructible
     box_templates = [box.box_template(pygame.image.load("res2/TBoxWood.png"), 500),
             box.box_template(pygame.image.load("res2/TBoxStone.png"), -1)]
 
