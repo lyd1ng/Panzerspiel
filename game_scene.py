@@ -13,7 +13,7 @@ class one_vs_one(menu_list.sub_menu):
     """
     A gamescene inherits from sub_menu. This way it can be part
     of the menu_list. Its the representation of the actuall game to play.
-    Therefor it defines own necessary variables as the tanks, the controller
+    Therefor it defines own necessary variables like the tanks, the controller
     of the tanks and the arena to play in and ovverides the update and
     draw function of the sub_menu class
     """
