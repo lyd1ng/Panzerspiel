@@ -67,6 +67,14 @@ def ray_rect_collision(line1, rect):
 
 
 def handle_tank_arena_collision(tank, arena):
+    """
+    This function handles the collision of a tank with the arena.
+    The used algorithm is very simple, the tanks velocity is substracted
+    from the position. And the tanks velocity is set to zero.
+    This way the tank is set to its previous position.
+    The same code is used in handle_tank_tank_collision.
+    If you want to add collision damage you could do it here.
+    """
     for obj in arena:
         if tank.rect.colliderect(obj.rect):
             tank.position = vector.sub(tank.position, tank.velocity)
@@ -74,6 +82,14 @@ def handle_tank_arena_collision(tank, arena):
 
 
 def handle_tank_tank_collision(tank, tanks):
+    """
+    This function handles the collision of a tank with the arena.
+    The used algorithm is very simple, the tanks velocity is substracted
+    from the position. And the tanks velocity is set to zero.
+    This way the tank is set to its previous position.
+    The same code is used in handle_tank_arena_collision.
+    If you want to add collision damage you could do it here.
+    """
     for t in tanks:
         if tank.rect.colliderect(t) and tank is not t:
             tank.position = vector.sub(tank.position, tank.velocity)
@@ -81,6 +97,16 @@ def handle_tank_tank_collision(tank, tanks):
 
 
 def handle_tank_shot(tank, environment):
+    """
+    This function handles the tank_shot event.
+    To archieve this a ray is casted along the viewing direction of the tank.
+    Every object hit by this ray is stored in a list and ordered by the
+    distance to the tank. This way the first element of the list is the
+    hit element. Its "decrease_health" function is invoked and
+    a TANK_HIT_EVENT, with the collision point as an argument, is thrown.
+    As the "decrease_health" function is invoked every object in the
+    environment list has to have a "decrease_health" function.
+    """
     collision_points_and_hit_objects = []
     ray = line(tank.position.as_int_tupel(),
             vector.polar(tank.angle, 2048).as_int_tupel())
