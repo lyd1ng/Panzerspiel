@@ -2,6 +2,11 @@ import pygame
 
 
 class h_slider(pygame.sprite.Sprite):
+    """
+    The h_slider is an animated gui element. It represents a horizontal
+    scrollbar. The value of the h_slider is always element of [min, max]
+    and passed to the callback function on every change.
+    """
     def __init__(self, slider_img_path, knob_img_path, position, _min, _max, callback):
         super().__init__()
         self.slider_image = pygame.image.load(slider_img_path)
