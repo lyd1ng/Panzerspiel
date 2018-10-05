@@ -42,7 +42,6 @@ def add_borders(arena, box_template, box_size):
     """
     # Add borders at the top and bottom of the arena
     for i in range(0, SCREEN_DIMENSION[0] // box_size[0] + 1):
-        box_template = box_template
         box_rectangle = pygame.Rect(i * box_size[0],
                 0, box_size[0], box_size[1])
         arena.append(box.box(box_rectangle, box_template))
@@ -51,7 +50,6 @@ def add_borders(arena, box_template, box_size):
         arena.append(box.box(box_rectangle, box_template))
     # Add borders at the left and right of the arena
     for i in range(0, SCREEN_DIMENSION[1] // box_size[1] + 1):
-        box_template = box_template
         box_rectangle = pygame.Rect(0,
                 i * box_size[1], box_size[0], box_size[1])
         arena.append(box.box(box_rectangle, box_template))
