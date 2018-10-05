@@ -14,8 +14,6 @@ class textbox(pygame.sprite.Sprite):
 
     def update(self, args):
         if self.ref is not None and self.getter is not None:
-            # Use deepcopy to as the boxes in box_types only works
-            # as a template
             # Use a format string to represent the result of the
             # getter function invoked on the referenc as a float
             # with two decimal points
