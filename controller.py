@@ -7,6 +7,9 @@ Their are part of the game_scenes.
 
 
 def player1_controller(args):
+    """
+    Controll a tank by w, a, s, d and alt left
+    """
     # mouse_keys = args[0]
     # mouse_pos = args[1]
     keys_pressed = args[2]
@@ -24,11 +27,15 @@ def player1_controller(args):
     if keys_pressed[pygame.K_LALT]:
         tank.shoot(timing_factor)
 
+    # If neither w nor s is pressed the tank should slow down
     if not keys_pressed[pygame.K_w] and not keys_pressed[pygame.K_s]:
         tank.slow_down(timing_factor)
 
 
 def player2_controller(args):
+    """
+    Controll a tank by i, k, j, l and space
+    """
     # mouse_keys = args[0]
     # mouse_pos = args[1]
     keys_pressed = args[2]
@@ -46,5 +53,6 @@ def player2_controller(args):
     if keys_pressed[pygame.K_SPACE]:
         tank.shoot(timing_factor)
 
+    # If neither i nor k is pressed the tank should slow down
     if not keys_pressed[pygame.K_i] and not keys_pressed[pygame.K_k]:
         tank.slow_down(timing_factor)
