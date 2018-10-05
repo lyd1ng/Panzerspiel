@@ -7,11 +7,13 @@ from event_definitions import TANK_HIT_EVENT
 class animator():
     """
     This class will be used to query on events and play animations
-    and sound effects
+    and sound effects.
+    The only event handled by the animator is the TANK_HIT_EVENT
+    which is thrown by the handle_tank_shot function of collision.py.
     """
     def __init__(self):
         self.animations = []
-        self.shot_sound = pygame.mixer.Sound("res2/test2.wav")
+        self.shot_sound = pygame.mixer.Sound("res2/explosion.wav")
 
     def update(self, args):
         # mouse_keys = args[0]
