@@ -2,6 +2,10 @@ import math
 
 
 class vector():
+    """
+    The vector class is a small 2d vector class. Every mathematical operation
+    is an independent function as pythons is not strictly oop orientated.
+    """
     def __init__(self, x, y):
         self.x = x
         self.y = y
