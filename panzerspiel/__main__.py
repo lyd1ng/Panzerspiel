@@ -1,6 +1,6 @@
 import pygame
-import menu
-from global_settings import (SCREEN_DIMENSION, MUSIC_VOLUME,
+from panzerspiel import menu
+from panzerspiel.global_settings import (SCREEN_DIMENSION, MUSIC_VOLUME,
         MUSIC_VOLUME_PRESCALER)
 
 if __name__ == "__main__":

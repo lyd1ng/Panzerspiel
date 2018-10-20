@@ -1,12 +1,12 @@
 import pygame
-import menu
-import menu_list
-import collision
-from own_sprite import own_sprite
-from animated_sprite import animated_sprite
-from animator import animator
-from event_definitions import (TANK_SHOT_EVENT)
-from health_bar import health_bar
+from panzerspiel import menu
+from panzerspiel import menu_list
+from panzerspiel import collision
+from panzerspiel.own_sprite import own_sprite
+from panzerspiel.animated_sprite import animated_sprite
+from panzerspiel.animator import animator
+from panzerspiel. event_definitions import (TANK_SHOT_EVENT)
+from panzerspiel.health_bar import health_bar
 
 
 class one_vs_one(menu_list.sub_menu):

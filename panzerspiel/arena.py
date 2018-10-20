@@ -1,8 +1,8 @@
 # import random
 import pygame
-import box
+from panzerspiel import box
 from random import randint
-from global_settings import (SCREEN_DIMENSION, BOX_SIZE)
+from panzerspiel.global_settings import (SCREEN_DIMENSION, BOX_SIZE)
 
 
 class arena(list):

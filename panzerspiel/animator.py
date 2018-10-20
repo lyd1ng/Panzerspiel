@@ -1,7 +1,7 @@
 import pygame
-import global_settings
-from animated_sprite import animated_sprite
-from event_definitions import TANK_HIT_EVENT
+from panzerspiel import global_settings
+from panzerspiel.animated_sprite import animated_sprite
+from panzerspiel.event_definitions import TANK_HIT_EVENT
 
 
 class animator():

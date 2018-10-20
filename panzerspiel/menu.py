@@ -1,17 +1,17 @@
 import pygame
-import tank
-import tank_config as tc
-import game_scene
-import arena
-import global_settings
-from menu_list import sub_menu
-from menu_list import menu_list
-from button import button
-from h_slider import h_slider
-from textbox import textbox
-from own_sprite import own_sprite
-from controller import player1_controller
-from controller import player2_controller
+from panzerspiel import tank
+from panzerspiel import tank_config as tc
+from panzerspiel import game_scene
+from panzerspiel import arena
+from panzerspiel import global_settings
+from panzerspiel.menu_list import sub_menu
+from panzerspiel.menu_list import menu_list
+from panzerspiel.button import button
+from panzerspiel.h_slider import h_slider
+from panzerspiel.textbox import textbox
+from panzerspiel.own_sprite import own_sprite
+from panzerspiel.controller import player1_controller
+from panzerspiel.controller import player2_controller
 from math import pi
 
 # The main menu

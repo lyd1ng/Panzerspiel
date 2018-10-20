@@ -1,5 +1,5 @@
 from math import atan2
-from vector import vector
+from panzerspiel.vector import vector
 
 
 # Global tank settings

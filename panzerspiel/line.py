@@ -1,4 +1,4 @@
-import vector
+from panzerspiel import vector
 
 
 class line():

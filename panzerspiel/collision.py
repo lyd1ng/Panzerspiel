@@ -1,8 +1,8 @@
 import pygame
-import vector
-from box import (box, box_template)
-from line import (line, rect_to_lines)
-from event_definitions import TANK_HIT_EVENT
+from panzerspiel import vector
+from panzerspiel.box import (box, box_template)
+from panzerspiel.line import (line, rect_to_lines)
+from panzerspiel.event_definitions import TANK_HIT_EVENT
 
 
 def line_line_collision(l1, l2):

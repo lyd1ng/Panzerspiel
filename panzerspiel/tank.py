@@ -1,12 +1,12 @@
 import pygame
-import vector
-import tank_config as tc
+from panzerspiel import vector
+from panzerspiel import tank_config as tc
 import random
 from math import pi
 from math import sin
 from math import cos
-from global_settings import (SCREEN_DIMENSION, BOX_SIZE)
-from event_definitions import TANK_SHOT_EVENT
+from panzerspiel.global_settings import (SCREEN_DIMENSION, BOX_SIZE)
+from panzerspiel.event_definitions import TANK_SHOT_EVENT
 
 # This list will hold all tanks in play
 TANKS = []

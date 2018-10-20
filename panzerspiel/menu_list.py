@@ -1,5 +1,5 @@
 import pygame
-import button
+from panzerspiel import button
 
 
 class sub_menu(pygame.sprite.Group):
