@@ -1,11 +1,13 @@
 import pygame
+from os.path import join
 from panzerspiel import menu
 from panzerspiel import menu_list
 from panzerspiel import collision
+from panzerspiel.global_settings import BASE_PATH
 from panzerspiel.own_sprite import own_sprite
 from panzerspiel.animated_sprite import animated_sprite
 from panzerspiel.animator import animator
-from panzerspiel. event_definitions import (TANK_SHOT_EVENT)
+from panzerspiel.event_definitions import (TANK_SHOT_EVENT)
 from panzerspiel.health_bar import health_bar
 
 
@@ -24,19 +26,19 @@ class one_vs_one(menu_list.sub_menu):
         self.arena = arena
         self.animator = animator()
         # Two animated sprites to display if a tank is ready to shoot
-        self.reload_sprite1 = animated_sprite("res2/TReload.png",
+        self.reload_sprite1 = animated_sprite(join(BASE_PATH, "res2/TReload.png"),
                 (10, 100), pygame.Rect(0, 0, 24, 48), 0)
-        self.reload_sprite2 = animated_sprite("res2/TReload.png",
+        self.reload_sprite2 = animated_sprite(join(BASE_PATH, "res2/TReload.png"),
                 (1010, 100), pygame.Rect(0, 0, 24, 48), 0)
         # Two healthbars to display the health of the tanks
-        self.health_bar1 = health_bar("res2/TFrameRed.png",
-                "res2/THealthbar.png", (10, 50), self.tanks[0],
-                lambda x: x.health / x.max_health)
-        self.health_bar2 = health_bar("res2/TFrameBlue.png",
-                "res2/THealthbar.png", (914, 50), self.tanks[1],
-                lambda x: x.health / x.max_health)
+        self.health_bar1 = health_bar(join(BASE_PATH, "res2/TFrameRed.png"),
+            join(BASE_PATH, "res2/THealthbar.png"), (10, 50),
+            self.tanks[0], lambda x: x.health / x.max_health)
+        self.health_bar2 = health_bar(join(BASE_PATH, "res2/TFrameBlue.png"),
+            join(BASE_PATH, "res2/THealthbar.png"), (914, 50), self.tanks[1],
+            lambda x: x.health / x.max_health)
         # A background image
-        self.background = own_sprite("res2/TTankMapGreen.png", (0, 0))
+        self.background = own_sprite(join(BASE_PATH, "res2/TTankMapGreen.png"), (0, 0))
         # The after life delay and counter is used to add a small delay
         # between the death of a tank and the switch to the winning menu
         # This way the last explosion animation and sound is played

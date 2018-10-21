@@ -1,4 +1,5 @@
 import pygame
+from os.path import join
 from panzerspiel import tank
 from panzerspiel import tank_config as tc
 from panzerspiel import game_scene
@@ -30,6 +31,8 @@ WINNING_MENUS = []
 MENU_LIST = menu_list()
 # The arena to play in
 ARENA = None
+# Get the basepath from global settings
+BASE_PATH = global_settings.BASE_PATH
 
 # The actuall match to play
 MATCH = None
@@ -164,10 +167,13 @@ def sound_effects_volume_cb(args):
 # Build up the main menu
 def build_main_menu():
     global MAIN_MENU
-    background = own_sprite("res2/TCover.png", (0, 0))
-    start_game_button = button("res2/TStart.png", (200, 568), start_game_cb)
-    option_button = button("res2/TOptions.png", (450, 568), option_button_cb)
-    leave_game_button = button("res2/TLeave.png", (700, 568), leave_game_cb, True)
+    background = own_sprite(join(BASE_PATH, "res2/TCover.png"), (0, 0))
+    start_game_button = button(join(BASE_PATH, "res2/TStart.png"), (200, 568),
+            start_game_cb)
+    option_button = button(join(BASE_PATH, "res2/TOptions.png"), (450, 568),
+            option_button_cb)
+    leave_game_button = button(join(BASE_PATH, "res2/TLeave.png"), (700, 568),
+            leave_game_cb, True)
     MAIN_MENU.add(background)
     MAIN_MENU.add(start_game_button)
     MAIN_MENU.add(option_button)
@@ -178,9 +184,9 @@ def build_main_menu():
 def build_option_menu():
     global OPTION_MENU
     # Add a background to the menu
-    background = own_sprite("res2/TCover.png", (0, 0))
+    background = own_sprite(join(BASE_PATH, "res2/TCover.png"), (0, 0))
     # Navigate button to return
-    return_button = button("res2/TBack.png", (450, 568), return_cb)
+    return_button = button(join(BASE_PATH, "res2/TBack.png"), (450, 568), return_cb)
 
     # Names of the slides
     font = pygame.font.FontType(pygame.font.get_default_font(), 13)
@@ -192,12 +198,12 @@ def build_option_menu():
     sound_effect_tb = textbox(font, pygame.Rect(100, 300, 100, 100),
             white, "Sound Volume")
     # Slides
-    surge_factor_slider = h_slider("res2/TSlider.png", "res2/TKnob.png", (200, 200),
-            0, 1, surge_factor_cb)
-    music_volume_slider = h_slider("res2/TSlider.png", "res2/TKnob.png", (200, 250),
-            0, 1, music_volume_cb)
-    sound_volume_slider = h_slider("res2/TSlider.png", "res2/TKnob.png", (200, 300),
-            0, 1, sound_effects_volume_cb)
+    surge_factor_slider = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+            join(BASE_PATH, "res2/TKnob.png"), (200, 200), 0, 1, surge_factor_cb)
+    music_volume_slider = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+            join(BASE_PATH, "res2/TKnob.png"), (200, 250), 0, 1, music_volume_cb)
+    sound_volume_slider = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+            join(BASE_PATH, "res2/TKnob.png"), (200, 300), 0, 1, sound_effects_volume_cb)
 
     # Set the slides standard values
     surge_factor_slider.set_value(tc.SURGE_FACTOR),
@@ -231,18 +237,18 @@ def build_customize_tank_menu():
     global CUSTOMIZE_TANK_MENU
 
     # Again add a background
-    background = own_sprite("res2/TCover.png", (0, 0))
+    background = own_sprite(join(BASE_PATH, "res2/TCover.png"), (0, 0))
     # Both tanks have to be initialised here as this menu will be used
     # to configure them
-    tank.TANKS.append(tank.tank(pygame.image.load("res2/TTankRed.png"),
+    tank.TANKS.append(tank.tank(pygame.image.load(join(BASE_PATH, "res2/TTankRed.png")),
         pygame.Rect(50, 364, 25, 25), 0))
-    tank.TANKS.append(tank.tank(pygame.image.load("res2/TTankBlue.png"),
+    tank.TANKS.append(tank.tank(pygame.image.load(join(BASE_PATH, "res2/TTankBlue.png")),
         pygame.Rect(949, 364, 25, 25), pi))
 
     # Navigate buttons to enter other sub-menus
-    start_match_button = button("res2/TStart.png", (200, 568),
+    start_match_button = button(join(BASE_PATH, "res2/TStart.png"), (200, 568),
             start_match_cb)
-    return_button = button("res2/TBack.png", (700, 568), return_cb)
+    return_button = button(join(BASE_PATH, "res2/TBack.png"), (700, 568), return_cb)
 
     # Names of the slides
     font = pygame.font.FontType(pygame.font.get_default_font(), 13)
@@ -259,16 +265,21 @@ def build_customize_tank_menu():
             white, "==== Fire Rate ====")
 
     # Customization slides for tank1
-    max_speed_slider1 = h_slider("res2/TSlider.png", "res2/TKnob.png", (200, 200),
-            tc.MIN_SPEED, tc.MAX_SPEED, max_speed1_cb)
-    acc_slider1 = h_slider("res2/TSlider.png", "res2/TKnob.png", (200, 250),
-            tc.MIN_ACCELERATION, tc.MAX_ACCELERATION, acc1_cb)
-    health_slider1 = h_slider("res2/TSlider.png", "res2/TKnob.png", (200, 300),
-            tc.MIN_HEALTH, tc.MAX_HEALTH, health1_cb)
-    dps_slider1 = h_slider("res2/TSlider.png", "res2/TKnob.png", (200, 350),
-            tc.MIN_DPS, tc.MAX_DPS, dps1_cb)
-    fire_rate_slider1 = h_slider("res2/TSlider.png", "res2/TKnob.png", (200, 400),
-            tc.MIN_FIRE_RATE, tc.MAX_FIRE_RATE, fire_rate1_cb)
+    max_speed_slider1 = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+        join(BASE_PATH, "res2/TKnob.png"), (200, 200),
+        tc.MIN_SPEED, tc.MAX_SPEED, max_speed1_cb)
+    acc_slider1 = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+        join(BASE_PATH, "res2/TKnob.png"), (200, 250),
+        tc.MIN_ACCELERATION, tc.MAX_ACCELERATION, acc1_cb)
+    health_slider1 = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+        join(BASE_PATH, "res2/TKnob.png"), (200, 300),
+        tc.MIN_HEALTH, tc.MAX_HEALTH, health1_cb)
+    dps_slider1 = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+        join(BASE_PATH, "res2/TKnob.png"), (200, 350),
+        tc.MIN_DPS, tc.MAX_DPS, dps1_cb)
+    fire_rate_slider1 = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+        join(BASE_PATH, "res2/TKnob.png"), (200, 400),
+        tc.MIN_FIRE_RATE, tc.MAX_FIRE_RATE, fire_rate1_cb)
 
     # Value textboxes for tank1
     t1_max_speed_tb = textbox(font, pygame.Rect(310, 200, 100, 100),
@@ -283,16 +294,21 @@ def build_customize_tank_menu():
             white, "", fire_rate_slider1, lambda x: x.value)
 
     # Customization slides for tank2
-    max_speed_slider2 = h_slider("res2/TSlider.png", "res2/TKnob.png", (700, 200),
-            tc.MIN_SPEED, tc.MAX_SPEED, max_speed2_cb)
-    acc_slider2 = h_slider("res2/TSlider.png", "res2/TKnob.png", (700, 250),
-            tc.MIN_ACCELERATION, tc.MAX_ACCELERATION, acc2_cb)
-    health_slider2 = h_slider("res2/TSlider.png", "res2/TKnob.png", (700, 300),
-            tc.MIN_HEALTH, tc.MAX_HEALTH, health2_cb)
-    dps_slider2 = h_slider("res2/TSlider.png", "res2/TKnob.png", (700, 350),
-            tc.MIN_DPS, tc.MAX_DPS, dps2_cb)
-    fire_rate_slider2 = h_slider("res2/TSlider.png", "res2/TKnob.png", (700, 400),
-            tc.MIN_FIRE_RATE, tc.MAX_FIRE_RATE, fire_rate2_cb)
+    max_speed_slider2 = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+        join(BASE_PATH, "res2/TKnob.png"), (700, 200),
+        tc.MIN_SPEED, tc.MAX_SPEED, max_speed2_cb)
+    acc_slider2 = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+        join(BASE_PATH, "res2/TKnob.png"), (700, 250),
+        tc.MIN_ACCELERATION, tc.MAX_ACCELERATION, acc2_cb)
+    health_slider2 = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+        join(BASE_PATH, "res2/TKnob.png"), (700, 300),
+        tc.MIN_HEALTH, tc.MAX_HEALTH, health2_cb)
+    dps_slider2 = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+        join(BASE_PATH, "res2/TKnob.png"), (700, 350),
+        tc.MIN_DPS, tc.MAX_DPS, dps2_cb)
+    fire_rate_slider2 = h_slider(join(BASE_PATH, "res2/TSlider.png"),
+        join(BASE_PATH, "res2/TKnob.png"), (700, 400),
+        tc.MIN_FIRE_RATE, tc.MAX_FIRE_RATE, fire_rate2_cb)
 
     # Value textboxes for tank2
     t2_max_speed_tb = textbox(font, pygame.Rect(810, 200, 100, 100),
@@ -352,25 +368,32 @@ def build_customize_tank_menu():
 # Build up the pause menu
 def build_pause_menu():
     global PAUSE_MENU
-    customize_menu = button("res2/TCustom.png", (200, 568), return_to_customize_cb)
-    options_menu = button("res2/TOptions.png", (450, 568), option_button_cb)
-    return_button = button("res2/TBack.png", (700, 568), return_cb)
+    customize_menu = button(join(BASE_PATH, "res2/TCustom.png"),
+            (200, 568), return_to_customize_cb)
+    options_menu = button(join(BASE_PATH, "res2/TOptions.png"),
+            (450, 568), option_button_cb)
+    return_button = button(join(BASE_PATH, "res2/TBack.png"),
+            (700, 568), return_cb)
     PAUSE_MENU = sub_menu([customize_menu, options_menu, return_button], True)
 
 
 def build_winning_menus():
     global WINNING_MENUS
     winning_menu1 = sub_menu()
-    restart_button = button("res2/TRetry.png", (200, 568), start_match_cb)
-    customize_menu = button("res2/TCustom.png", (700, 568), return_to_customize_cb)
-    back_ground1 = own_sprite("res2/tank1_won.png", (0, 0))
+    restart_button = button(join(BASE_PATH, "res2/TRetry.png"),
+            (200, 568), start_match_cb)
+    customize_menu = button(join(BASE_PATH, "res2/TCustom.png"),
+            (700, 568), return_to_customize_cb)
+    back_ground1 = own_sprite(join(BASE_PATH, "res2/tank1_won.png"), (0, 0))
     winning_menu1.add(back_ground1)
     winning_menu1.add(restart_button)
     winning_menu1.add(customize_menu)
     winning_menu2 = sub_menu()
-    restart_button = button("res2/TRetry.png", (200, 568), start_match_cb)
-    customize_menu = button("res2/TCustom.png", (700, 568), return_to_customize_cb)
-    back_ground2 = own_sprite("res2/tank2_won.png", (0, 0))
+    restart_button = button(join(BASE_PATH, "res2/TRetry.png"),
+            (200, 568), start_match_cb)
+    customize_menu = button(join(BASE_PATH, "res2/TCustom.png"),
+            (700, 568), return_to_customize_cb)
+    back_ground2 = own_sprite(join(BASE_PATH, "res2/tank2_won.png"), (0, 0))
     winning_menu2.add(back_ground2)
     winning_menu2.add(restart_button)
     winning_menu2.add(customize_menu)

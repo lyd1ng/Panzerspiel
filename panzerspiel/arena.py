@@ -1,7 +1,9 @@
 # import random
 import pygame
-from panzerspiel import box
+from os.path import join
 from random import randint
+from panzerspiel import box
+from panzerspiel.global_settings import BASE_PATH
 from panzerspiel.global_settings import (SCREEN_DIMENSION, BOX_SIZE)
 
 
@@ -69,8 +71,11 @@ def random_arena():
     _arena = arena()
     # The box templates ensures that every wooden box has 500 life points
     # while stone boxes are indestructible
-    box_templates = [box.box_template(pygame.image.load("res2/TBoxWood.png"), 500),
-            box.box_template(pygame.image.load("res2/TBoxStone.png"), -1)]
+    box_templates = [
+        box.box_template(pygame.image.load(join(BASE_PATH,
+        "res2/TBoxWood.png")), 500),
+        box.box_template(pygame.image.load(join(BASE_PATH,
+        "res2/TBoxStone.png")), -1)]
 
     for i in range(20):
         posx = randint(BOX_SIZE[0], SCREEN_DIMENSION[0])

@@ -1,4 +1,5 @@
 import pygame
+from os.path import join
 from panzerspiel import global_settings
 from panzerspiel.animated_sprite import animated_sprite
 from panzerspiel.event_definitions import TANK_HIT_EVENT
@@ -13,7 +14,8 @@ class animator():
     """
     def __init__(self):
         self.animations = []
-        self.shot_sound = pygame.mixer.Sound("res2/explosion.wav")
+        self.shot_sound = pygame.mixer.Sound(join(global_settings.BASE_PATH,
+            "res2/explosion.wav"))
 
     def update(self, args):
         # mouse_keys = args[0]
@@ -30,9 +32,10 @@ class animator():
                 # Play the shot sound
                 self.shot_sound.play(loops=0, maxtime=0, fade_ms=0)
 
-                animation = animated_sprite("res2/explosion.png",
-                        e.collision_point.as_int_tupel(),
-                        pygame.Rect(0, 0, 128, 128), 1.0, True)
+                animation = animated_sprite(join(global_settings.BASE_PATH,
+                    "res2/explosion.png"),
+                    e.collision_point.as_int_tupel(),
+                    pygame.Rect(0, 0, 128, 128), 1.0, True)
                 self.animations.append(animation)
         for a in self.animations:
             a.update((timing_factor, ))
