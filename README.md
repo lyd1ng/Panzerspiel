@@ -1,5 +1,8 @@
 # Panzerspiel
 A small tank game where you can customize your own tank.
+It is part of pypi, so you can install it using pip:
+
+	pip install --user panzerspiel
 
 # Idea
 The basic idea of this game was to make a customizable tank game.
