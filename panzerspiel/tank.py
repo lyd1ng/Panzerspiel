@@ -7,6 +7,7 @@ from math import sin
 from math import cos
 from panzerspiel.global_settings import (SCREEN_DIMENSION, BOX_SIZE)
 from panzerspiel.event_definitions import TANK_SHOT_EVENT
+import q
 
 # This list will hold all tanks in play
 TANKS = []
@@ -63,6 +64,7 @@ class tank(pygame.sprite.Sprite):
         self.position.x = random.randint(BOX_SIZE[0], SCREEN_DIMENSION[0] - BOX_SIZE[0])
         self.position.y = random.randint(BOX_SIZE[1], SCREEN_DIMENSION[1] - BOX_SIZE[1])
 
+    @q
     def update(self, args):
         timing_factor = args[3]
         if self.dead is False:

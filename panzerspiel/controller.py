@@ -1,11 +1,12 @@
 import pygame
+import q
 
 """
 The controller functions are used to controll tanks.
 Their are part of the game_scenes.
 """
 
-
+@q
 def player1_controller(args):
     """
     Controll a tank by w, a, s, d and alt left

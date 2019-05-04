@@ -1,4 +1,5 @@
 import pygame
+import random
 from os.path import join
 from panzerspiel import menu
 from panzerspiel import menu_list
@@ -9,6 +10,8 @@ from panzerspiel.animated_sprite import animated_sprite
 from panzerspiel.animator import animator
 from panzerspiel.event_definitions import (TANK_SHOT_EVENT)
 from panzerspiel.health_bar import health_bar
+
+BACKGROUND_IMAGE_PATHS = ["res2/TTankMapGreen.png", "res2/TTankMapGrey.png"]
 
 
 class one_vs_one(menu_list.sub_menu):
@@ -37,8 +40,9 @@ class one_vs_one(menu_list.sub_menu):
         self.health_bar2 = health_bar(join(BASE_PATH, "res2/TFrameBlue.png"),
             join(BASE_PATH, "res2/THealthbar.png"), (914, 50), self.tanks[1],
             lambda x: x.health / x.max_health)
-        # A background image
-        self.background = own_sprite(join(BASE_PATH, "res2/TTankMapGreen.png"), (0, 0))
+        # Load a random background image
+        index = random.randint(0, len(BACKGROUND_IMAGE_PATHS) - 1)
+        self.background = own_sprite(join(BASE_PATH, BACKGROUND_IMAGE_PATHS[index]), (0, 0))
         # The after life delay and counter is used to add a small delay
         # between the death of a tank and the switch to the winning menu
         # This way the last explosion animation and sound is played
