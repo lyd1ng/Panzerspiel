@@ -62,7 +62,6 @@ def start_match_cb(args):
     global ARENA
     global MATCH
     global MENU_LIST
-    print("TEST AUS DEM MENU HERAUS")
 
     # It is only allowed to start the match if no tanks
     # has negativ credits
